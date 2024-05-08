@@ -19,3 +19,15 @@ export const editPatron = async (patronObj) => {
 
     const response = await fetch(`${_apiUrl}/${patronObj.id}`, putOptions)
 }
+
+export const updatePatronActiveStatus = async (id) => {
+    const putOptions = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    const response = await fetch(`/api/patronstatus/${id}`, putOptions);
+    return response;
+};

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Table } from "reactstrap";
-import { getPatrons } from "../../data/patronsData";
+import { getPatrons, updatePatronActiveStatus } from "../../data/patronsData";
 import { Link } from "react-router-dom";
 
 
@@ -37,6 +37,13 @@ export default function Patrons() {
                             <td>
                                 <Link to={`${p.id}`}>Details</Link>
                             </td>
+                            {/* <td>
+                                {p.isActive ? <button type="button" onClick={() => {
+                                    updatePatronActiveStatus(p.id)
+                                }}>Deactivate</button> : <button type="button" onClick={() => {
+                                    updatePatronActiveStatus(p.id)
+                                }}>Activate</button>}
+                            </td> */}
                         </tr>
                     ))}
                 </tbody>

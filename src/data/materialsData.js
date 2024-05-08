@@ -16,3 +16,15 @@ export const createMaterial = (material) => {
     body: JSON.stringify(material),
   }).then((res) => res.json());
 };
+
+export const removeMaterial = async (id) => {
+  const putOptions = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+
+  const response = await fetch(`${_apiUrl}/${id}`, putOptions)
+  return response;
+}
