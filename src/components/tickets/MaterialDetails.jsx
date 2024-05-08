@@ -24,11 +24,11 @@ export default function MaterialDetails() {
         <tbody>
           <tr>
             <th scope="row">Type</th>
-            <td>{material.materialType.name}</td>
+            <td>{material.materialType?.name}</td>
           </tr>
           <tr>
             <th scope="row">Genre</th>
-            <td>{material.genre.name}</td>
+            <td>{material.genre?.name}</td>
           </tr>
           <tr>
             <th scope="row">Out Of Circulation?</th>
@@ -51,7 +51,7 @@ export default function MaterialDetails() {
             </tr>
           </thead>
           <tbody>
-            {material.checkouts.map((co) => (
+            {material.checkouts?.map((co) => (
               <tr key={`checkout-${co.id}`}>
                 <td>
                   {co.patron.firstName} {co.patron.lastName}
