@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { editPatron, getPatron } from "../../data/patronsData"
+import { editPatron, getPatron, updatePatronActiveStatus } from "../../data/patronsData"
 import { useNavigate, useParams } from "react-router-dom"
 import { Table } from "reactstrap";
 
@@ -14,6 +14,10 @@ export default function PatronDetails() {
     useEffect(() => {
         getPatron(id).then(setPatron);
     }, [id]);
+
+    useEffect(() => {
+        getPatron(id).then(setPatron);
+    }, [patron])
 
     const handleEmailChange = (e) => {
         setPatron(prevPatron => ({
@@ -56,6 +60,13 @@ export default function PatronDetails() {
                         <tr>
                             <th scope="row">IsActive</th>
                             <td>{patron.isActive ? "True" : "False"}</td>
+                            <td>
+                                {patron.isActive ? <button type="button" onClick={() => {
+                                    updatePatronActiveStatus(patron.id)
+                                }}>Deactivate</button> : <button type="button" onClick={() => {
+                                    updatePatronActiveStatus(patron.id)
+                                }}>Activate</button>}
+                            </td>
                         </tr>
                     </tbody>
                 </Table>
